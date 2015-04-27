@@ -1,0 +1,32 @@
+<div class="right">
+    <div class="czjl_top"></div>
+    <div class="tongtit">
+      <div class="xshi">自动投标</div>
+    </div>
+         <div class="dtitle"></div>
+   <div class="contents_auto">
+      <% if current_user.auto_invest_rules.blank? %>
+          <div class="row">
+            <div class="col-sm-9 col-sm-offset-3" >
+                <a class="btn btn-primary btn-lg" href="<%= new_account_auto_invest_path %>">开启自动投标</a>
+            </div>
+          </div>
+      <% end %>
+
+        <div class="contents_auto_text">
+          <div class="col-sm-12">
+            <div>利用 “自动投标”工具，您只需设定预期条件，系统自动为您挑选合适的借款项目并自动投资，不再担心没时间、挑花眼。只需轻点鼠标，赚钱就是这么容易！</div>
+            <h4>自动投标：规则说明</h4>
+            <ol>
+              <li>最低设置金额为100元；</li>
+              <li>满足您设定的自动理财方案的借款标，即使该借款标的剩余可投标金额小于您设定的自动投标金额，也会进行自动借出；</li>
+              <li>自动理财对某个借款标投出的金额最高只能达到该借款标借款金额的20%；</li>
+              <li>自动理财的排序规则如下：<br />
+                a）投标顺序按照开启自动理财功能的时间先后进行排序；<br />
+                b）每个会员对每个借款标仅自动投标一次，投标后，排到该借款标当前所有自动理财会员的队尾；<br />
+              </li>
+            </ol>
+          </div>
+        </div>
+   </div>
+</div>    

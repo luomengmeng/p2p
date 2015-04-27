@@ -1,0 +1,7 @@
+1.增加测试数据（贷款表《loans》）
+100.times { |i| Loan.create(user_id:2,amount:(rand*1000000).to_i,available_amount:(rand*100000).to_i,months:3,interest:30,repay_style:%w{equal interest_only at_due}[rand(2)],
+             min_invest:100,max_invest:10000,due_date:Time.now+4.months,title:"测试#{i}",desc:"贷款说明",
+             credit_level:rand(5)+1,with_mortgage:rand(1),with_guarantee:rand(1),junior_auditor_id:1,
+             junior_audit_time:Time.now-1.months,senior_auditor_id:1,senior_audit_time:Time.now,
+             bids_auditor_id:1,bids_audit_time:Time.now+1.days, loan_state_id:rand(8)+1,auto_invested_at:Time.now)}
+

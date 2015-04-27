@@ -1,0 +1,81 @@
+<div class="well">
+  <div class="search-well">
+    <%= search_form_for @search, :url => manage_backend_pay_orders_path, :html => {:method => "get", :class => "form-inline"}  do |f| %>
+      <%= f.text_field :email_or_info_name_or_info_id_card_or_info_mobile_cont, class: "input-xlarge", placeholder: "邮箱/姓名/身份证号/手机号" %>
+      <%= f.submit '搜索用户', class: "btn" %>
+    <% end %>
+    <%= render partial: "searchmanage" %>
+  </div>
+  <% if @lenders.present? %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>邮箱</th>
+        <th>姓名</th>
+        <th>身份证</th>
+        <th>创建时间</th>
+        <th>上次登录时间</th>
+        <th style="width: 20px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lenders.each do |lender| %>
+        <tr>
+          <td><%= lender.id %></td>
+          <td><%= link_to lender.email, backend_lender_path(lender), :target => "_blank" %></td>
+          <td><%= lender.name %></td>
+          <td><%= lender.info.id_card %></td>
+          <td><%= lender.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+          <td><%= lender.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+          <td>
+            <%= link_to '充值', offline_recharge_backend_pay_orders_path(:id => lender.id) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @offline_recharge %>
+  <% end %>
+</div>
+<div class="well">
+  线下充值记录:<br><br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>转出账户</th>
+        <th>转入账户</th>
+        <th>相关账户</th>
+        <th>金额</th>
+        <th>描述</th>
+        <th style="width: 26px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @offline_recharge.each do |cash_flow| %>
+        <tr>
+          <td><%= cash_flow.id %></td>
+          <td>
+          <% if cash_flow.from_user %>
+            <%= link_to cash_flow.from_user.try(:name), backend_cash_flow_path(cash_flow.from_user) %>
+          <% else %>
+            &nbsp;
+          <% end %>
+          </td>
+          <td>
+            <% if cash_flow.to_user %>
+              <%= link_to cash_flow.to_user.try(:name), backend_cash_flow_path(cash_flow.to_user) %>
+            <% else %>
+              &nbsp;
+            <% end %>
+          </td>
+          <td><%= cash_flow.offline_user.try(:name) %></td>
+          <td><%= rmb cash_flow.amount %></td>
+          <td><%= cash_flow.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate @offline_recharge %>

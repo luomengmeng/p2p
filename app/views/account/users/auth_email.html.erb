@@ -1,0 +1,24 @@
+
+<div class='right'>
+    <div class="czjl_top"></div>
+    <div class="tongtit">
+      <div class="xshi">邮箱认证</div>
+    </div>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <div class='tabbable'>
+            <div class='tab-content'>
+              <div class='tab-pane active' id=''>
+              <div class="user_trade_password_left"><%= form_note_account flash %></div>
+	        <% if current_user.confirmed_at.present? %>
+                        <div class="imgbox">
+                            <img src="<%= asset_url('frontend/email.png') %>" />
+                            <p><%= current_user.email %></p>
+                        </div>
+	        <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

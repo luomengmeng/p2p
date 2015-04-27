@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/juqery-1.10.2.js"></script>
+<script type="text/javascript" src="js/jquery_ujs.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/jquery.kinMaxShow-1.1.min.js"></script>
+<style>
+#kinMaxShow .KMSPrefix_kinMaxShow_button {
+  right: 10px;
+  bottom: 10px;
+  position: absolute;
+  list-style: none;
+  z-index: 2;
+  overflow: hidden;
+ 
+  _zoom: 1;
+}
+#kinMaxShow .KMSPrefix_kinMaxShow_button li {
+  
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  font-size: 10px;
+  background: #cccaca;
+  border: 1px solid #ffffff;
+  color: #666666;
+  text-align: center;
+  margin-right: 8px;
+  font-family: Verdana;
+  float: left;
+  cursor: pointer;
+  -webkit-text-size-adjust: none;
+}
+#kinMaxShow .KMSPrefix_kinMaxShow_button li.KMSPrefix_kinMaxShow_focus {
+    background: none repeat scroll 0 0 #cc0000;
+    border: 1px solid #ff0000;
+    color: #000000;
+    cursor: default;
+	
+}
+
+</style>
+
+<script type="text/javascript">
+$(function(){
+	
+	$("#kinMaxShow").kinMaxShow({
+			height:465
+     });
+	 });
+
+</script>
+
+</head>
+<body>
+<div class="header">
+   <div class="headerson">
+      <div class="left">
+         <span>欢迎致电：</span><span class="da phone400"></span><span class='serve_time'></span>
+         <a href="http://www.weibo.com/yataiyangguang" class="qqlog posa" target='_blank'></a>
+         <a href="http://t.qq.com/yataitouzi" class="qqlog posb" target='_blank'></a>
+      </div>
+      <div class="right">
+         <span id='hello' onclick="javascript:window.location.href='/account/users'">您好： <span id='username'></span>
+          <div class="xllists">
+             <a href="/account/users">我的账户</a>
+             <a href="/account/recharge">我要充值</a>
+             <a href="/account/withdraws/new">我要提现</a>
+             <a href="/account/transactions">资金管理</a>
+             <a href="/account/invests">理财管理</a>
+             <a rel="nofollow" data-method="delete" href="/users/sign_out">退出</a>
+          </div>
+        </span>
+         <a href="/users/sign_in" class="zc sign">登陆</a>&nbsp;
+         <a href="/users/sign_up" class="zc sign">注册</a>
+      </div>
+   </div>
+</div>
+<div class="neck">
+   <div class="neckson">
+      <div class="logo" onclick="javascript:window.location.href='/'">
+         <img src="image/logo.jpg" width="248" height="87" />
+      </div>
+      <div class="navright">
+         <a href="/loans">我要理财</a>
+         <a href="/debts">债权转让</a>
+         <a href="/loan_applications/new">我要融资</a>
+         <a href="/news">亚太资讯</a>
+         <a href="/aboutus">关于我们</a>
+      </div>
+   </div>
+</div>
+<style type="text/css">
+#banner { position: relative; width: 90%; height: 286px; overflow: hidden; margin:auto;}
+#banner_list img { border: 0px; }
+#banner_bg { position: absolute; bottom: 0; background-color: #000; height: 30px; filter: Alpha(Opacity=30); opacity: 0.3; z-index: 1000; cursor: pointer; width: 100%; }
+#banner_info { position: absolute; bottom: 0; left: 5px; height: 22px; color: #fff; z-index: 1001; cursor: pointer }
+#banner_text { position: absolute; z-index: 1002; right: 3px; bottom: 3px; }
+#banner ul { position: absolute; list-style-type: none; filter: Alpha(Opacity=80); opacity: 0.8; z-index: 1002; margin: 0; padding: 0; bottom: 3px; right: 5px; }
+#banner ul li { padding: 0px 8px; float: left; display: block; color: #FFF; background: #6f4f67; cursor: pointer; border: 1px solid #333; }
+#banner ul li.on { background-color: #000; }
+
+</style>
+
+
+<div class="banner">
+<div id="kinMaxShow">
+     <!--HTML结构中 div容器不能省略哦-->
+    <div>  <img src="image/banner.jpg"   />   </div>
+    <div>  <img src="http://www.yataitouzi.com/NuoWanFile/2015-4-20/20150420125656534.png"   />   </div>
+    <div>  <img src="http://www.yataitouzi.com/NuoWanFile/2015-3-31/20150331105156723.png"   />   </div>
+                   
+        
+</div>
+</div>
+
+
+<div class="touzgglan">
+   <div class="touzgglanson">
+      <img src="image/ytsj.jpg" /><div class="bor">聪明的投资人：<span id='invest_people'></span></div><div class="bor">用户投资总额：<span id='invest_amount'><span></div><div>用户赚取收益：<span id='interest_amount'><span></div>
+   </div>
+</div>
+<div class="bod">
+<div class="tuijianxm">
+   推荐项目：<span>风控部门正在努力审核项目，预计项目发布时间：<span class="ju">10:00</span>,<span class="ju">13:00</span>,<span class="ju">16:00</span>,<span class="ju">20:00</span><a href="/invests">更多</a></span>
+</div>
+   <div class="bodson">
+      <div class="newlefts">
+       <div class="jrxinbiaok">
+  <div class="jrxinbiao" onclick="javascript:window.location.href='/show_invest?id=41'">
+     <img src="image/huankz.jpg" class="stateImg">
+     <div class="jsbiao">
+        <span class="name">何明</span><br>
+        <span class="xiaozi title">逛街购物</span>
+     </div>
+     <div class="jinduf">
+        <div class="jindu"></div>
+     </div>
+     <span class="xiaozi fenhong amount">金额：30000￥</span>
+     <div class="xbanner">
+      <a href="javscript:void(0)" class="unslider-arrow2 prev jtleft"></a>
+      <a href="javscript:void(0)" class="unslider-arrow2 next jtright"></a>
+        <ul style="width:100%;">
+            <li><img src="image/ysz.jpg"></li>
+        </ul>
+    </div>
+    <div class="shulianghua">
+       <div class="jborder">
+          <span><span class="juh loan_interest">18</span><span class="zhong juh">%</span></span>
+          <span class="xiao">年化利率</span>
+       </div>
+       <div>
+          <span class="loan_month">3</span><span class="zhong">个月</span>
+          <span class="xiao">项目期限</span>
+       </div>
+    </div>
+    <button class="botbot zjhse"><a href="javascript:void(0);" target="_blank" class="opt">还款中 查看详情</a></button>
+  </div>
+
+  <div class="jrxinbiao jjuer" onclick="javascript:window.location.href='/show_invest?id=40'">
+     <img src="image/huankz.jpg" class="stateImg">
+     <div class="jsbiao">
+        <span class="name">丽丽</span><br>
+        <span class="xiaozi title">周游</span>
+     </div>
+     <div class="jinduf">
+        <div class="jindu"></div>
+     </div>
+     <span class="xiaozi fenhong amount">金额：10000￥</span>
+     <div class="xbanner xbanner1">
+      <a href="javscript:void(0)" class="unslider-arrow2 prev jtleft"></a>
+      <a href="javscript:void(0)" class="unslider-arrow2 next jtright"></a>
+        <ul style="width:100%;">
+            <li><img src="image/ysz.jpg"></li>
+        </ul>
+    </div>
+    <div class="shulianghua">
+       <div class="jborder">
+          <span><span class="juh loan_interest">12</span><span class="zhong juh">%</span></span>
+          <span class="xiao">年化利率</span>
+       </div>
+       <div>
+          <span class="loan_month">1</span><span class="zhong">个月</span>
+          <span class="xiao">项目期限</span>
+       </div>
+    </div>
+    <button class="botbot zjhse"><a href="javascript:void(0);" target="_blank" class="opt">还款中 查看详情</a></button>
+  </div>
+
+  <div class="jrxinbiao jjuer" onclick="javascript:window.location.href='/show_invest?id=38'">
+     <img src="image/huankz.jpg" class="stateImg">
+     <div class="jsbiao">
+        <span class="name">test001</span><br>
+        <span class="xiaozi title">WAN</span>
+     </div>
+     <div class="jinduf">
+        <div class="jindu"></div>
+     </div>
+     <span class="xiaozi fenhong amount">金额：5000￥</span>
+     <div class="xbanner xbanner1 xbanner2">
+      <a href="javscript:void(0)" class="unslider-arrow2 prev jtleft"></a>
+      <a href="javscript:void(0)" class="unslider-arrow2 next jtright"></a>
+        <ul style="width:100%;">
+            <li><img src="image/ysz.jpg"></li>
+        </ul>
+    </div>
+    <div class="shulianghua">
+       <div class="jborder">
+          <span><span class="juh loan_interest">12</span><span class="zhong juh">%</span></span>
+          <span class="xiao">年化利率</span>
+       </div>
+       <div>
+          <span class="loan_month">1</span><span class="zhong">个月</span>
+          <span class="xiao">项目期限</span>
+       </div>
+    </div>
+    <button class="botbot zjhse"><a href="javascript:void(0);" target="_blank" class="opt">还款中 查看详情</a></button>
+  </div>
+
+  <div class="jrxinbiao" onclick="javascript:window.location.href='/show_invest?id=37'">
+     <img src="image/huankz.jpg" class="stateImg">
+     <div class="jsbiao">
+        <span class="name">雯雯</span><br>
+        <span class="xiaozi title">买车</span>
+     </div>
+     <div class="jinduf">
+        <div class="jindu"></div>
+     </div>
+     <span class="xiaozi fenhong amount">金额：60000￥</span>
+     <div class="xbanner xbanner1 xbanner2">
+      <a href="javscript:void(0)" class="unslider-arrow2 prev jtleft"></a>
+      <a href="javscript:void(0)" class="unslider-arrow2 next jtright"></a>
+        <ul style="width:100%;">
+            <li><img src="image/ysz.jpg"></li>
+        </ul>
+    </div>
+    <div class="shulianghua">
+       <div class="jborder">
+          <span><span class="juh loan_interest">12</span><span class="zhong juh">%</span></span>
+          <span class="xiao">年化利率</span>
+       </div>
+       <div>
+          <span class="loan_month">3</span><span class="zhong">个月</span>
+          <span class="xiao">项目期限</span>
+       </div>
+    </div>
+    <button class="botbot zjhse"><a href="javascript:void(0);" target="_blank" class="opt">还款中 查看详情</a></button>
+  </div>
+
+  <div class="jrxinbiao jjuer" onclick="javascript:window.location.href='/show_invest?id=36'">
+     <img src="image/huankz.jpg" class="stateImg">
+     <div class="jsbiao">
+        <span class="name">小白</span><br>
+        <span class="xiaozi title">租车</span>
+     </div>
+     <div class="jinduf">
+        <div class="jindu"></div>
+     </div>
+     <span class="xiaozi fenhong amount">金额：40000￥</span>
+     <div class="xbanner xbanner1 xbanner2 xbanner4">
+      <a href="javscript:void(0)" class="unslider-arrow2 prev jtleft"></a>
+      <a href="javscript:void(0)" class="unslider-arrow2 next jtright"></a>
+        <ul style="width:100%;">
+            <li><img src="image/ysz.jpg"></li>
+        </ul>
+    </div>
+    <div class="shulianghua">
+       <div class="jborder">
+          <span><span class="juh loan_interest">12</span><span class="zhong juh">%</span></span>
+          <span class="xiao">年化利率</span>
+       </div>
+       <div>
+          <span class="loan_month">1</span><span class="zhong">个月</span>
+          <span class="xiao">项目期限</span>
+       </div>
+    </div>
+    <button class="botbot zjhse"><a href="javascript:void(0);" target="_blank" class="opt">流标 查看详情</a></button>
+  </div>
+
+  <div class="jrxinbiao jjuer" onclick="javascript:window.location.href='/show_invest?id=34'">
+     <img src="image/huankz.jpg" class="stateImg">
+     <div class="jsbiao">
+        <span class="name">小白</span><br>
+        <span class="xiaozi title">购物</span>
+     </div>
+     <div class="jinduf">
+        <div class="jindu"></div>
+     </div>
+     <span class="xiaozi fenhong amount">金额：20000￥</span>
+     <div class="xbanner xbanner1 xbanner2 xbanner4 xbanner5">
+      <a href="javscript:void(0)" class="unslider-arrow2 prev jtleft"></a>
+      <a href="javscript:void(0)" class="unslider-arrow2 next jtright"></a>
+        <ul style="width:100%;">
+            <li><img src="image/ysz.jpg"></li>
+        </ul>
+    </div>
+    <div class="shulianghua">
+       <div class="jborder">
+          <span><span class="juh loan_interest">15</span><span class="zhong juh">%</span></span>
+          <span class="xiao">年化利率</span>
+       </div>
+       <div>
+          <span class="loan_month">3</span><span class="zhong">个月</span>
+          <span class="xiao">项目期限</span>
+       </div>
+    </div>
+    <button class="botbot zjhse"><a href="javascript:void(0);" target="_blank" class="opt">流标 查看详情</a></button>
+  </div>
+</div>
+      </div>
+      <div class="newrights">
+         <dl class="ytjj">
+            <dt>什么是亚太投资？</dt>
+            <dd>亚太投资为各位投资人提供安全、互联网理财服务.四步开户。享受1，可获得12%-18%的稳定年化收益款利息，可享受100%本息保障。</dd>
+         </dl>
+         <div class="gonggnext">
+            <div class="titles bg2">
+              网站公告<a href="/news">更多></a>
+            </div>
+            <ul id='notices'></ul>
+         </div>
+      </div>
+      <div class="qihuanyq">
+         <div class="titletop">
+            <a href="javascript:void(0)" class="bor">媒体报道</a><a href="javascript:void(0)">友情链接</a>
+         </div>
+         <div class="contens">
+            <img src="image/yq.jpg" />
+            <img src="image/yq2.jpg" />
+            <img src="image/yq3.jpg" />
+            <img src="image/yq4.jpg" />
+            <img src="image/yq5.jpg" />
+            <img src="image/yq6.jpg" />
+            <img src="image/yq7.jpg" />
+         </div>
+         <div class="contens">
+            <img src="image/yq.jpg" />
+            <img src="image/yq3.jpg" />
+            <img src="image/yq2.jpg" />
+            <img src="image/yq4.jpg" />
+            <img src="image/yq5.jpg" />
+            <img src="image/yq6.jpg" />
+            <img src="image/yq7.jpg" />
+         </div>
+      </div>
+   </div>
+   <div class="footers">
+      <div class="fonterson">
+         <div class="left">
+            <div class="zhzi">客服热线</div>
+            <div class="dazi lan phone400"></div>
+            <div class="xzi serve_time"></div>
+            <div class="zhzi">官方QQ群</div>
+            <div class="dazi lan qq_group"></div>
+         </div>
+         <div class="center">
+            <img src="image/dengfoot.jpg" />
+            <img src="image/xingfoot.jpg" />
+            <img src="image/lianfoot.jpg" />
+         </div>
+         <img src="image/qrcode.png" />
+      </div>
+   </div>
+   <div class="foot">
+      <div class="top">
+         <a href="/news" target="_blank">关于我们</a>
+         <a href="#" target="_blank">理财问答</a>
+         <a href="#" target="_blank">法律声明</a>
+         <a href="#" target="_blank">联系我们</a>
+         <a href="#" target="_blank">加入我们</a>
+         <a href="#" target="_blank">友情链接</a>
+         <a href="#" target="_blank">我要融资</a>
+         <a href="#" target="_blank">收益计算器</a>
+         <a href="#" target="_blank">合同托管查询</a>
+      </div>
+      <div class="bottom">
+         <div class="bottomson">
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg" /></a>
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg" /></a>
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg" /></a>
+         </div>
+      </div>
+   </div>
+</div>
+<a class="QQbox" id="divQQbox" href="">
+ <img src="image/qqzx.jpg" />在线客服
+</a>
+<div class="loan_wrap" style='display:none;'>
+  <div class="jrxinbiao jjuer">
+     <img src="image/jinrixinbiao.png" class='stateImg' />
+     <div class="jsbiao">
+        <span class='name'></span><br>
+        <span class="xiaozi title"></span>
+     </div>
+     <div class="jinduf">
+        <div class="jindu"></div>
+     </div>
+     <span class="xiaozi fenhong amount"></span>
+     <div class="xbanner">
+      <a href="javscript:void(0)" class="unslider-arrow2 prev jtleft"></a>
+      <a href="javscript:void(0)" class="unslider-arrow2 next jtright"></a>
+        <ul style="width:100%;">
+            <li><img src="image/ysz.jpg" /></li>
+        </ul>
+    </div>
+    <div class="shulianghua">
+       <div class="jborder">
+          <span><span class="juh loan_interest"></span><span class="zhong juh">%</span></span>
+          <span class="xiao">年化利率</span>
+       </div>
+       <div>
+          <span class='loan_month'></span><span class="zhong">个月</span>
+          <span class="xiao">项目期限</span>
+       </div>
+    </div>
+    <button class="botbot"><a href="javascript:void(0);" target="_blank" class='opt'></a></button>
+  </div>
+</div>
+<div class='notices-wrap' style='display:none;'>
+  <li class="liststyles"><a href="#" target="_blank"></a></li>
+</div>
+<script type="text/javascript" src="js/qqzx.js"></script>
+<script type="text/javascript" src="js/backup.js"></script>
+<script type="text/javascript" src="js/jqueryuser.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $.ajax({
+    url: "/home/info_json",
+    dataType: 'json',
+    success: function(data){
+
+      $('#invest_people').text(data.invest_people + '人');
+      $('#invest_amount').text(data.invest_amount);
+      $('#interest_amount').text(data.interest_amount);
+      for(var p in data.loans){
+        if(parseInt(p)%3 == 0){
+          $('.loan_wrap .jrxinbiao').removeClass('jjuer');
+        }else{
+          $('.loan_wrap .jrxinbiao').addClass('jjuer');
+          $('.loan_wrap .xbanner').addClass('xbanner'+p);
+        }
+        $('.loan_wrap .jrxinbiao').attr('onclick', "javascript:window.location.href='/show_invest?id="+data.loans[p].id+"'")
+        $('.loan_wrap .name').text(data.loans[p].name);
+        $('.loan_wrap .title').text(data.loans[p].title);
+        $('.loan_wrap .loan_interest').text(data.loans[p].interest);
+        $('.loan_wrap .loan_month').text(data.loans[p].month);
+        $('.loan_wrap .amount').text('金额：' + data.loans[p].amount + "￥");
+        if( data.loans[p].state == "投标中"){
+          $('.loan_wrap .jindu').css('width', (150 * data.loans[p].progress)+'px');
+          $('.loan_wrap .opt').text('投标中');
+          $('.loan_wrap .botbot').removeClass('zjhse');
+          $('.loan_wrap .stateImg').attr('src', 'image/jinrixinbiao.png');
+        }else{
+          $('.loan_wrap .opt').text(data.loans[p].state+' 查看详情');
+          $('.loan_wrap .stateImg').attr('src', 'image/huankz.jpg');
+          $('.loan_wrap .botbot').addClass('zjhse');
+        }
+
+        $('.jrxinbiaok').append($('.loan_wrap').html());
+      }
+      for(var a in data.notices){
+        $('.notices-wrap a').text(data.notices[a].title);
+        $('.notices-wrap a').attr('href', '/new?id=' + data.notices[a].id);
+        $('#notices').append($('.notices-wrap').html());
+      }
+
+    }
+  });
+
+  $.ajax({
+    url: "/home/banner_info",
+    dataType: 'json',
+    success: function(data){
+
+      var count = data.length;
+        $.each(data, function(i, item) {
+            $(".banner_t").append("<li>"+(i+1)+"</li>");
+            $("#banner_list").append('<a href="##" target="_blank"><img src="'+item.pic.url+'" title="'+item.title+'" alt="'+item.title+'"/></a>');
+        });
+    }
+});
+
+function xinspect(o,i){
+    if(typeof i=='undefined')i='';
+    if(i.length>50)return '[MAX ITERATIONS]';
+    var r=[];
+    for(var p in o){
+        var t=typeof o[p];
+        r.push(i+'"'+p+'" ('+t+') => '+(t=='object' ? 'object:'+xinspect(o[p],i+'  ') : o[p]+''));
+    }
+    return r.join(i+'\n');
+}
+})
+</script>
+</body>
+</html>

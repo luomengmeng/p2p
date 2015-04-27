@@ -1,0 +1,48 @@
+<div class="search-well">
+  <%= search_form_for @search, :url => backend_cash_flows_path, :html => {:method => :get, :class=>"form-inline", :role=>"form"} do |f| %>
+    <%= f.select :cash_flow_description_id_eq, options_from_collection_for_select(Dict::CashFlowDescription.can_be_search, 'id', 'name', (params[:search].present? ? params[:search][:cash_flow_description_id_eq] : nil)), class: "input-xlarge" %>
+    <%= f.submit '搜索', class: "btn" %>
+  <% end %>
+</div>
+<div class="well">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>转出账户</th>
+        <th>转入账户</th>
+        <th>相关账户</th>
+        <th>金额</th>
+        <th>描述</th>
+        <th>创建时间</th>
+        <th style="width: 26px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cash_flows.each do |cash_flow| %>
+        <tr>
+          <td><%= cash_flow.id %></td>
+          <td>
+          <% if cash_flow.from_user %>
+            <%= link_to cash_flow.from_user.try(:name_or_email), backend_cash_flow_path(cash_flow.from_user) %>
+          <% else %>
+            &nbsp;
+          <% end %>
+          </td>
+          <td>
+            <% if cash_flow.to_user %>
+              <%= link_to cash_flow.to_user.try(:name_or_email), backend_cash_flow_path(cash_flow.to_user) %>
+            <% else %>
+              &nbsp;
+            <% end %>
+          </td>
+          <td><%= cash_flow.offline_user.try(:name) %></td>
+          <td><%= rmb cash_flow.amount %></td>
+          <td><%= cash_flow.description %></td>
+          <td><%= format_time cash_flow.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate @cash_flows %>

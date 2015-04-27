@@ -1,0 +1,34 @@
+<div class="row" id="content-wrapper">
+  <div class="col-xs-12">
+    <div class="row">
+      <%= form_note_account flash %>
+      <div class="col-sm-12">
+        <div class="page-header">
+          <h1 class="pull-left">
+            <i class="icon-edit"></i>
+            <span>债权转让</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-content">
+            <%= form_for @bid, :url => hawk_account_debt_path(@bid.id), :method => 'PUT', :html=>{:class => 'form form-horizontal validate-form', :novalidate=>"novalidate"} do |f| %>
+              <%= render :partial => "form", :locals => {:f => f} %>
+            <% end%>
+            <div class="row">
+              <div class="col-md-12">
+                <h4>温馨提示</h4>
+                <ol>
+                  <li>最低转让金额为<%= Bid::MIN_SELL_AMOUNT %>元。</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

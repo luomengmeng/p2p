@@ -1,0 +1,23 @@
+<div class='right'>
+  <div class="czjl_top"></div>
+    <div class="tongtit">
+      <div class="xshi">交易记录明细</div>
+    </div>
+
+      <div class="contents">
+         <div class="czjl">
+            <div class="czjltitle">日期/时间 </div>
+            <div class="czjltitle">交易类型</div>
+            <div class="czjltitle">交易金额（元）</div>
+            <div class="czjltitle">可支配余额（元）</div>
+         </div>
+         <% @cash_flows.each do |cash_flow| %>
+         <div class="czjl">
+            <div class="czjltitle"><%= cash_flow.created_at.try(:strftime, "%Y/%m/%d/ %H:%M") %></div>
+            <div class="czjltitle"><%= cash_flow.description.to_s %></div>
+            <div class="czjltitle"><%= rmb cash_flow.amount %></div>
+            <div class="czjltitle"><%= rmb cash_flow.available_of_user(current_user) %></div>
+         </div>
+         <% end %>
+      </div><!--contents end-->
+</div>

@@ -1,0 +1,150 @@
+#fb-root.fb_reset
+  /
+    <p class="notice"><haml:loud> notice </haml:loud></p>
+    <p class="alert"><haml:loud> alert </haml:loud></p>
+    <haml:loud> link_to '登录', '/users/sign_in'  </haml:loud>
+    <haml:loud> link_to '退出', destroy_user_session_path, :method =&amp;gt; :delete </haml:loud>
+  %a{:name => "top"}
+  #index{"data-spy" => "scroll"}
+    .banner
+      %ul
+        - @banners.each do |banner|
+          %li{:style => "background-image: url('#{banner.pic.url}');"}
+            = banner.inner_html.html_safe
+      #login_index
+        .login_area
+        .login_input.row
+          - if current_user
+            .col-sm-10.col-sm-offset-1{:style => 'line-height: 30px;'}
+              %h3.title{:style => 'color: #ffffff;text-align:left;'}
+                亲爱的
+                = current_user.username
+                ，您好
+              .text-left{:style => 'color: #ffffff;font-weight:normal;'}
+                = current_user.email
+              .index_infos.text-left
+                %p
+                  %small
+                    可用金额：
+                  %span
+                    = rmb current_user.available
+                %p
+                  %small
+                    待收总额：
+                  %span
+                    = rmb current_user.not_collection_total
+                .index_links
+                  = link_to '我要充值', account_recharge_path, class: "btn btn-danger btn-lg"
+                  = link_to '我要提现', new_account_withdraw_path, class: "btn btn-danger btn-lg", style: "margin-left: 30px;"
+          - else
+            .col-sm-10.col-sm-offset-1
+              %h4.text-left
+                %strong.title{:style => 'color: #ffffff;'}
+                  登录
+              = form_for @user, url: session_path(@user), html: {class: 'validate-form text-left', style: 'margin-top: 10px;'} do |f|
+                .form-group
+                  .controls.with-icon-over-input
+                    = f.text_field :login, placeholder: "用户名或邮箱", class: "form-control", 'data-rule-required' => true
+                .form-group
+                  .controls.with-icon-over-input
+                    = f.password_field :password, autocomplete: "off", placeholder: "密码", class: "form-control", 'data-rule-required' => true
+                = hidden_field_tag :role, "user"
+                .checkbox.fn-left{:style => 'line-height: 20px;'}
+                  %label{:for => 'remember_me'}
+                    = f.check_box :remember_me
+                    %strong{:style => 'font-size: 14px;'}
+                      记住我
+                .hr-normal.fn-right{:style => 'padding-top: 9px; font-size: 14px;'}
+                  %strong
+                    = link_to "免费注册", new_registration_path(@user), style: 'color: #ffffff;'
+                    = link_to "忘记密码？", new_password_path(@user), style: 'color: #ffffff;'
+                = f.submit "立即登录", class: "btn btn-block btn-lg btn-danger"
+
+    .wrapped-content
+      .box
+        .box-header
+        .box-content
+          .row
+            .col-sm-5{:style=>"padding-left: 25px;"}
+              %h2
+                风险保障金：
+                %span.text-error
+                  10,000,000元
+              - if @supervise
+                %ul.list-unstyled
+                  - @supervise.articles.limit(2).each do |s|
+                    %li
+                      %i.icon-circle-blank
+                      = link_to s.title, webnews_path(s)
+                %div{:style=>"margin:auto; width:100px;"}
+                  = link_to "查看更多", webnews_index_path(st: @supervise.id)
+            .col-sm-4
+              %h3
+                客服电话：
+                %span.text-error
+                  = SystemConfig.phone400.value
+              %h3
+                官方QQ一群：
+                %span.text-error
+                  375824406
+              %h3
+                官方QQ一群：
+                %span.text-error
+                  342895562
+            .col-sm-3{:style=>"padding: 47px 21px;"}
+              %a.btn.btn-block.btn-lg.btn-danger{:onclick=>"ec_cs_fnOpenTalk2('537073','','');"} 在线客服
+    .hr
+    .wrapped-content
+      .tabbable
+        %ul.nav.nav-tabs.home-nav
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#tab1"}
+              %h3 投资列表
+          %li
+            %a{"data-toggle" => "tab", :href => "#tab2"}
+              %h3 预计发标
+        .tab-content
+          #tab1.tab-pane.active
+            - @loans.each do |l|
+              = render :partial => "bid", :locals => {:loan => l}
+            .col-sm-12{:style => "padding:0px;"}
+              %a.btn.btn-block.btn-lg{:style =>"border-color:#F5F5F5;", :href => invests_path, :target => "_blank"}
+                %strong 查看更多
+
+          #tab2.tab-pane
+            - @loans_feature.each do |l|
+              = render :partial => "bid", :locals => {:loan => l}
+            .col-sm-12{:style => "padding:0px;"}
+              %a.btn.btn-block.btn-lg{:style =>"border-color:#F5F5F5;", :href => invests_path, :target => "_blank"}
+                %strong 查看更多
+
+  .hangyenewsbox
+    .hychild
+      - @medias.each do |media|
+        .hangyenews
+          %p.hyp
+            %span.hyspan= media.name == '各类常见问题' ? '帮助中心' : media.name
+          %ul#news-list.hangul
+            - if media.name == '各类常见问题'
+              - media.articles.order('id').first(4).each do |article|
+                %li
+                  %a.f16{:href => webnews_path(article), :target => "_blank"}
+                    %p.decoration.mt18
+                    = article.title
+            - else
+              - media.articles.order('id desc').first(4).each do |article|
+                %li
+                  %a.f16{:href => webnews_path(article), :target => "_blank"}
+                    %p.decoration.mt18
+                    = article.title
+          %p.news-list-more
+            %a.darkgray.f16{:href => webnews_index_path(:st => media.id), :target => "_blank"} 查看更多
+    / hychild
+/ %script{:src => "/assets/unslider.js"}
+/ :javascript
+/   $(function() {
+/     $('.banner').unslider({
+/         fluid: true,
+/         dots: true
+/     });
+/   });

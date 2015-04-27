@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link href="css/css.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/juqery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/jquery_ujs.js"></script>
+    <script type="text/javascript" src="js/circle-progress.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <style>
+    .modal-dialog{
+      width: 100%;
+      text-align: left;
+      float: left;
+      height: 75px;
+      line-height: 75px;
+      color: #888d93;padding-left: 18px;}
+      .jiangjin{
+        width:1000px;
+        height:249px;
+        margin: 0 auto;
+        background: url(../image/jiangjin.jpg) no-repeat;
+        overflow: hidden;
+    }
+    .one{width:200px; height:250px;margin-left: 20px; float: left; border: 1px solid #000; }
+    .three{width:200px; height:250px; margin-left:20px;float: left; border: 1px solid #000; }
+    .two{width:500px; height: 250px;margin-left: 20px; float: left; border: 1px solid #000;}
+    .uname{width:100%; font-size: 40px; line-height: 50px; text-align: center;}
+    .unum{width:100%; font-size: 40px; line-height: 50px; text-align: center;}
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+     <div class="headerson">
+      <div class="left">
+       <span>欢迎致电：</span><span class="da phone400"></span><span class='serve_time'></span>
+       <a href="http://www.weibo.com/yataiyangguang" class="qqlog posa" target='_blank'></a>
+       <a href="http://t.qq.com/yataitouzi" class="qqlog posb" target='_blank'></a>
+   </div>
+   <div class="right">
+       <span id='hello' onclick="javascript:window.location.href='/account/users'">您好： <span id='username'></span>
+       <div class="xllists">
+           <a href="/account/users">我的账户</a>
+           <a href="/account/recharge">我要充值</a>
+           <a href="/account/withdraws/new">我要提现</a>
+           <a href="/account/transactions">资金管理</a>
+           <a href="/account/invests">理财管理</a>
+           <a rel="nofollow" data-method="delete" href="/users/sign_out">退出</a>
+       </div>
+   </span>
+   <a href="/users/sign_in" class="zc sign">登陆</a>&nbsp;
+   <a href="/users/sign_up" class="zc sign">注册</a>
+</div>
+</div>
+</div>
+<div class="neck">
+ <div class="neckson">
+  <div class="logo" onclick="javascript:window.location.href='/'">
+   <img src="image/logo.jpg" width="248" height="87" />
+</div>
+<div class="navright">
+   <a href="/loans">我要理财</a>
+   <a href="/debts">债权转让</a>
+   <a href="/loan_applications/new">我要融资</a>
+   <a href="/news">亚太资讯</a>
+   <a href="/aboutus">关于我们</a>
+</div>
+</div>
+</div>
+<div class="bod">
+    <div class="erjinav">
+        <div class="erjinavson">
+            <a href="/loans">我要理财</a>><a href="/loans">散标理财列表</a>><a href="#" class="yuanyin"></a>
+        </div>
+    </div>
+    <div class="bodson bkwhite">
+        <div class="top">
+
+            <dl>
+                <dt class="loan_type"></dt>
+                <dd>
+                    <div>
+                        <div class="title">标的总额</div>
+                        <div class="cons loan_total_amount"></div>
+                    </div>
+                    <div>
+                        <div class="title">年利率</div>
+                        <div class="cons loan_invest"></div>
+                    </div>
+                    <div>
+                        <div class="title">还款期限</div>
+                        <div class="cons repayment_period"></div>
+                    </div>
+                </dd>
+            </dl>
+            <div id="divProgress" class='shyl'>
+                <div id='percent'></div>
+            </div>
+            <div class="xiaocon">
+                <div class="leftblockfa">
+                    <div class="leftblock">
+                        <div><span class="huis">保障方式</span> <span class="tuh safeguard_methods">本金</span></div>
+                        <div><span class="huis">还款方式</span> <span class="tuh repayment_methods"></span></div>
+                    </div>
+                    <div class="leftblock">
+                        <div><span class="huis">还需金额</span> <span class="tuh available_amount"></span></div>
+                    </div>
+                </div>
+            <div class="rightblockfa">
+                <div class="box-content text-center" style="display: none;">
+                    <h3>请 <a href="/users/sign_in " class="" text-contrast="">登录</a> 或 <a href="/sign_up " class="" text-contrast="">注册</a> 后查看</h3>
+                </div>
+            </div>
+            <div class='col-sm-3'>
+
+                <div class='modal fade' id='invest_new' tabindex='-1'>
+                    <div class='modal-dialog' style="display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="jiangjin">
+            </div>
+
+
+            <div class="txxqtab">
+                <a>标的详情</a><a>借贷资金详情</a><a>资料审核</a><a>待还款记录</a><a>投标记录</a>
+            </div>
+            <div class="txxqtabcon">
+                <div>
+                    <div class="lblocks">了人资料</div>
+                    <div class="rblocks">1111111111</div>
+                </div>
+                <div>
+                    <div class="lblocks">基本信息</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">借款用途</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">授信额度</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">还款来源</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">首笔招标</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">招标时间</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">相关证件</div>
+                    <div class="rblocks"></div>
+                </div>
+            </div>
+            <div class="txxqtabcon">
+                <div>
+                    <div class="lblocks">了人资料</div>
+                    <div class="rblocks">2</div>
+                </div>
+                <div>
+                    <div class="lblocks">基本信息</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">借款用途</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">授信额度</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">还款来源</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">首笔招标</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">招标时间</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">相关证件</div>
+                    <div class="rblocks"></div>
+                </div>
+            </div>
+            <div class="txxqtabcon">
+                <div>
+                    <div class="lblocks">了人资料</div>
+                    <div class="rblocks">3</div>
+                </div>
+                <div>
+                    <div class="lblocks">基本信息</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">借款用途</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">授信额度</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">还款来源</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">首笔招标</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">招标时间</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">相关证件</div>
+                    <div class="rblocks"></div>
+                </div>
+            </div>
+            <div class="txxqtabcon">
+                <div>
+                    <div class="lblocks">了人资料</div>
+                    <div class="rblocks">4</div>
+                </div>
+                <div>
+                    <div class="lblocks">基本信息</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">借款用途</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">授信额度</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">还款来源</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">首笔招标</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">招标时间</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">相关证件</div>
+                    <div class="rblocks"></div>
+                </div>
+            </div>
+            <div class="txxqtabcon">
+                <div>
+                    <div class="lblocks">了人资料</div>
+                    <div class="rblocks">5</div>
+                </div>
+                <div>
+                    <div class="lblocks">基本信息</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">借款用途</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">授信额度</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">还款来源</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">首笔招标</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">招标时间</div>
+                    <div class="rblocks"></div>
+                </div>
+                <div>
+                    <div class="lblocks">相关证件</div>
+                    <div class="rblocks"></div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="wylclist" id="holder"></div>-->
+    </div>
+
+    <!--<div class="wylclist" id="holder">-->
+
+    <!--</div>-->
+
+    <div id="item-tmp" style="display: none;">
+        <div class="wylclist">
+            <div class="lefter">
+                <span class="yikuan dazi title"></span>
+                <span class="erkuan dazi juse interest"></span>
+                <span class="paddinger lanser amount"></span>
+                <span class="paddinger lanser months"></span>
+                <span class="paddinger lanser a100"></span>
+            </div>
+
+            <a class="righter" href="javascript:void(0)"></a>
+        </div>
+    </div>
+</div>
+<div class="footers">
+    <div class="fonterson">
+        <div class="left">
+            <div class="zhzi">客服热线</div>
+            <div class="dazi lan phone400"></div>
+            <div class="xzi serve_time"></div>
+            <div class="zhzi">官方QQ群</div>
+            <div class="dazi lan qq_group"></div>
+        </div>
+        <div class="center">
+            <img src="image/dengfoot.jpg"/>
+            <img src="image/xingfoot.jpg"/>
+            <img src="image/lianfoot.jpg"/>
+        </div>
+        <img src="image/qrcode.png"/>
+    </div>
+</div>
+<div class="foot">
+    <div class="top">
+        <a href="#" target="_blank">关于我们</a>
+        <a href="#" target="_blank">理财问答</a>
+        <a href="#" target="_blank">法律声明</a>
+        <a href="#" target="_blank">联系我们</a>
+        <a href="#" target="_blank">加入我们</a>
+        <a href="#" target="_blank">友情链接</a>
+        <a href="#" target="_blank">我要融资</a>
+        <a href="#" target="_blank">收益计算器</a>
+        <a href="#" target="_blank">合同托管查询</a>
+    </div>
+    <div class="bottom">
+        <div class="bottomson">
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg"/></a>
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg"/></a>
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg"/></a>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modals">
+    <div class="modalsson">
+        <div class="title">头像设置</div>
+        <form method="" action="#" enctype="multipart/form-data">
+            <div class="fileups"><input type="file" class="fileup"/>
+
+                <div class="hqyzmer hqyzmers">选择文件</div>
+                <span>您可以上传jpg,png,gif图片，上传最大4M。</span></div>
+                <div class="hqyzmer hqyzreset">取消</div>
+                <input type="submit" class="hqyzm"/>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jqueryuser.js"></script>
+    <script type="text/javascript">
+
+
+    $(document).ready(function () {
+        html_show_list('id', '/invests/show_invest');
+        $.ajax({
+            url: '/invests/new?loan_id='+getUrlParam('id'),
+            success: function (data) {
+                $('.modal-dialog').html(data);
+            }
+        });
+    });
+
+    function xinspect(o, i) {
+        if (typeof i == 'undefined')i = '';
+        if (i.length > 50)return '[MAX ITERATIONS]';
+        var r = [];
+        for (var p in o) {
+            var t = typeof o[p];
+            r.push(i + '"' + p + '" (' + t + ') => ' + (t == 'object' ? 'object:' + xinspect(o[p], i + '  ') : o[p] + ''));
+        }
+        return r.join(i + '\n');
+    }
+
+    </script>
+</body>
+</html>

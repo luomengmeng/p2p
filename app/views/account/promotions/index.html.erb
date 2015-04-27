@@ -1,0 +1,58 @@
+<div class='right'>
+    <div class="czjl_top"></div>
+    <div class="tongtit">
+      <div class="xshi">邀请好友</div>
+    </div>
+      <div class='row'>
+        <div class='col-sm-12' style="margin:80px 0 20px 0;">
+          <div id="code1"><%= invests_url(:yaoqingid => current_user.id) %></div>
+        </div>
+          <div style="margin-bottom:20px;color:gray;">
+          <div class="row_copy">
+          	<a  id="d_clip_button" href="javascript:void(0);">复制连接可进行邀请好友(点击复制)</a>
+          </div>
+          <div>
+              <img src="<%= asset_url('frontend/pic_f.png') %>" />
+            </div>
+          </div>
+      </div>
+</div>
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+$(function(){
+  $("#d_clip_button").click(function(){
+    var Url=$("#code1").text();
+    copyToClipboard(Url);
+ });
+});
+
+function copyToClipboard(maintext){
+  if (window.clipboardData){
+    window.clipboardData.setData("Text", maintext);
+    }else if (window.netscape){
+      try{
+        netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+    }catch(e){
+        alert("该浏览器不支持一键复制！请手工复制文本框链接地址～");
+    }
+
+    var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+    if (!clip) return;
+    var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+    if (!trans) return;
+    trans.addDataFlavor('text/unicode');
+    var str = new Object();
+    var len = new Object();
+    var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+    var copytext=maintext;
+    str.data=copytext;
+    trans.setTransferData("text/unicode",str,copytext.length*2);
+    var clipid=Components.interfaces.nsIClipboard;
+    if (!clip) return false;
+    clip.setData(trans,null,clipid.kGlobalClipboard);
+  }
+  alert("以下内容已经复制到剪贴板nn" + maintext);
+}
+</SCRIPT>

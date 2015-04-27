@@ -1,0 +1,21 @@
+
+
+<div class="search-well">
+  <% url = backend_withdraws_path %>
+<%= search_form_for @q, :url => url, :class => "form-inline" do |f| %>
+	<%= f.search_field :audit_time_gteq %>
+	 至 
+	<%= f.search_field :audit_time_lteq %>
+	<%= f.submit "搜索", :class => "btn" %>
+<% end %>
+</div>
+<script type="text/javascript">
+	$(function (){
+		$('#q_audit_time_gteq').datepicker({
+		inline: true
+	});
+	$('#q_audit_time_lteq').datepicker({
+		inline: true
+		});
+	})
+</script>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/juqery-1.10.2.js"></script>
+<script type="text/javascript" src="js/jquery_ujs.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+</head>
+
+<body>
+<div class="header">
+   <div class="headerson">
+      <div class="left">
+         <span>欢迎致电：</span><span class="da phone400"></span><span class='serve_time'></span>
+         <a href="http://www.weibo.com/yataiyangguang" class="qqlog posa" target='_blank'></a>
+         <a href="http://t.qq.com/yataitouzi" class="qqlog posb" target='_blank'></a>
+      </div>
+      <div class="right">
+         <span id='hello' onclick="javascript:window.location.href='/account/users'">您好： <span id='username'></span>
+          <div class="xllists">
+             <a href="/account/users">我的账户</a>
+             <a href="/account/recharge">我要充值</a>
+             <a href="/account/withdraws/new">我要提现</a>
+             <a href="/account/transactions">资金管理</a>
+             <a href="/account/invests">理财管理</a>
+             <a rel="nofollow" data-method="delete" href="/users/sign_out">退出</a>
+          </div>
+        </span>
+         <a href="/users/sign_in" class="zc sign">登陆</a>&nbsp;
+         <a href="/users/sign_up" class="zc sign">注册</a>
+      </div>
+   </div>
+</div>
+<div class="neck">
+   <div class="neckson">
+      <div class="logo" onclick="javascript:window.location.href='/'">
+         <img src="image/logo.jpg" width="248" height="87" />
+      </div>
+      <div class="navright">
+         <a href="/loans">我要理财</a>
+         <a href="/debts">债权转让</a>
+         <a href="/loan_applications/new">我要融资</a>
+         <a href="/news">亚太资讯</a>
+         <a href="/aboutus">关于我们</a>
+      </div>
+   </div>
+</div>
+<div class="bod">
+   <div class="bodson"></div>
+   <div class="footers">
+      <div class="fonterson">
+         <div class="left">
+            <div class="zhzi">客服热线</div>
+            <div class="dazi lan">400-650-2921</div>
+            <div class="xzi">服务时间：9:00-21:00</div>
+            <div class="zhzi">官方QQ群</div>
+            <div class="dazi lan">230-902-850</div>
+         </div>
+         <div class="center">
+            <img src="image/dengfoot.jpg" />
+            <img src="image/xingfoot.jpg" />
+            <img src="image/lianfoot.jpg" />
+         </div>
+         <img src="image/erweima.jpg" />
+      </div>
+   </div>
+   <div class="foot">
+      <div class="top">
+         <a href="#" target="_blank">关于我们</a>
+         <a href="#" target="_blank">理财问答</a>
+         <a href="#" target="_blank">法律声明</a>
+         <a href="#" target="_blank">联系我们</a>
+         <a href="#" target="_blank">加入我们</a>
+         <a href="#" target="_blank">友情链接</a>
+         <a href="#" target="_blank">我要融资</a>
+         <a href="#" target="_blank">收益计算器</a>
+         <a href="#" target="_blank">合同托管查询</a>
+      </div>
+      <div class="bottom">
+         <div class="bottomson">
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg" /></a>
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg" /></a>
+            <a href="#" target="_blank"><img src="image/youqinglj.jpg" /></a>
+         </div>
+      </div>
+   </div>
+</div>
+<script type="text/javascript" src="js/jqueryuser.js"></script>
+<script type="text/javascript">
+$(function(){
+  if(getUrlParam('id')){
+    $.ajax({
+        url: "/webnews/"+getUrlParam('id'),
+        success: function (data) {
+          $('.bodson').html(data);
+        }
+    });
+  }else if(getUrlParam('category')){
+    $.ajax({
+      url: "/webnews?st="+getUrlParam('category'),
+      success: function (data) {
+        $('.bodson').html(data);
+      }
+    });
+  }else{
+    $.ajax({
+        url: "/webnews",
+        success: function (data) {
+          $('.bodson').html(data);
+        }
+    });
+  }
+
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><%= @title %></title>
+<%= csrf_meta_tags %>
+<%= stylesheet_link_tag  "frontend.css", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "frontend", "data-turbolinks-track" => true %>
+</head>
+
+<body>
+<%= render 'layouts/header' %>
+<div class="bod">
+	<div class='bodzcbg'>
+	  <%= yield %>
+	</div>
+  <%= render 'layouts/footer' %>
+</div>
+
+<a class="QQbox" id="divQQbox" href="">
+ <img src="<%= asset_url('frontend/qqzx.jpg') %>" />在线客服
+</a>
+<%= javascript_include_tag "frontend/qqzx", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "frontend/backup", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "frontend/jqueryuser", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery-validate.min", "data-turbolinks-track" => true %>
+<script type="text/javascript">
+
+  $('form').validate({
+    onKeyup : true,
+    eachValidField : function() {
+
+      $(this).removeClass('error').addClass('success');
+    },
+    eachInvalidField : function() {
+
+      $(this).removeClass('success').addClass('error');
+    }
+  });
+    
+</script>
+</body>
+</html>

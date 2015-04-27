@@ -1,0 +1,32 @@
+<div class="right">
+
+   <div class="dtitle">启&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="xjieshi"><%= check_box_tag :active, '1', @auto_invest_rule.actived_at.present? %></span>
+   </div>
+   <div class="dtitle">每次投标金额 
+    <span class="xjieshi"><%= f.text_field :amount, {:class => 'input-xlarge form-control', :'data-rule-number' => "true",  :'data-rule-required'=>"true", :'data-rule-min' => 100, :'data-rule-maxlength' => 10} %></span>
+   </div>
+   <div class="dtitle">利息范围&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="xjieshi"><%= f.text_field :min_interest, {:class => 'input-xlarge form-control', :'data-rule-number' => "true",  :'data-rule-required'=>"true", :'data-rule-min' => 0, :'data-rule-maxlength' => 10} %> - <%= f.text_field :max_interest, {:class => 'input-xlarge form-control', :'data-rule-number' => "true",  :'data-rule-required'=>"true", :'data-rule-min' => 0, :'data-rule-maxlength' => 10} %></span>
+   </div>
+   <div class="dtitle">借款期限&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="xjieshi"><%= f.text_field :min_months, {:class => 'input-xlarge form-control', :'data-rule-number' => "true",  :'data-rule-required'=>"true", :'data-rule-min' => 1, :'data-rule-max' => 36, :'data-rule-maxlength' => 2} %> - <%= f.text_field :max_months, {:class => 'input-xlarge form-control', :'data-rule-number' => "true",  :'data-rule-required'=>"true", :'data-rule-min' => 1, :'data-rule-max' => 36, :'data-rule-maxlength' => 2} %></span>
+   </div>
+   <div class="dtitle">有&nbsp;&nbsp;抵&nbsp;&nbsp;押&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="xjieshi"><%= f.check_box :with_mortgage %></span>
+   </div>
+   <div class="dtitle">有&nbsp;&nbsp;担&nbsp;&nbsp;保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="xjieshi"><%= f.check_box :with_guarantee %></span>
+   </div>
+   <div class="dtitle">还款方式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="xjieshi"><%= f.select :repay_style, {'全部' => ''}.merge(Loan::REPAYSTYLE), class: "useryzm" %></span>
+   </div>
+   <div class="dtitle">账户保留金额 
+    <span class="xjieshi"><%= f.text_field :remain_amount, {:class => 'input-xlarge form-control', :'data-rule-number' => "true" } %></span>
+   </div>
+
+
+   <div class="dtitle">
+    <input class="hqyzm" name="commit" type="submit" value="提交">
+  </div>
+</div>
